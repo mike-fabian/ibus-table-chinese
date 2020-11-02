@@ -98,7 +98,7 @@ MACRO(CONVERT_DB targetName)
 	    LIST(APPEND _dependIcon "${CMAKE_SOURCE_DIR}/icons/${_tabName}.jpg")
 	ENDIF(EXISTS "${CMAKE_SOURCE_DIR}/icons/${_tabName}.png")
     ENDFOREACH(_tabFile ${ARGN})
-    M_MSG(${M_INFO1} "[${targetName}] db files=${_dependDb}")
+    MESSAGE("[${targetName}] db files=${_dependDb}")
 
     ADD_CUSTOM_TARGET(convert_${targetName}
 	COMMENT "Building ${targetName} table(s)..."
