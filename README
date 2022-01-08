@@ -39,9 +39,7 @@ Dependencies:
 
 Where to Report Issues:
     General issues:
-	IBus Google Code
-	https://code.google.com/p/ibus/issues/list
-	Please set ibus-table-chinese as Component
+	https://github.com/mike-fabian/ibus-table-chinese/issues
 
     Fedora or RHEL related:
 	Red Hat Bugzilla
