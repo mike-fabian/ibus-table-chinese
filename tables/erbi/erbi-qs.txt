@@ -19,7 +19,7 @@ UUID = cc992910-be17-4342-9631-3759623b94a9
 ### A unique number indicates the version of this file.
 ### For example the last modified date of this file.
 ### This number must be less than 2^32.
-SERIAL_NUMBER = 20040425
+SERIAL_NUMBER = 20220111
 
 ICON = erbi-qs.svg
 
