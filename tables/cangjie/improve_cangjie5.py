@@ -29,6 +29,7 @@ from typing import Any
 from typing import List
 from typing import Dict
 import re
+import unicodedata
 import logging
 
 def parse_args() -> Any:
@@ -86,6 +87,21 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
                 reading_table = False
             tail.append(line)
     for (input, chinese_character) in table:
+        unicode_name = unicodedata.name(chinese_character, '')
+        if unicode_name.startswith('CJK COMPATIBILITY IDEOGRAPH'):
+            unicode_decomposition = unicodedata.decomposition(
+                chinese_character)
+            unicode_decomposition_char = ''
+            if unicode_decomposition:
+                unicode_decomposition_char = chr(
+                    int(unicode_decomposition, 16))
+            logging.info('%s\t%s\t%s %s %s %s',
+                         input,
+                         chinese_character,
+                         table[(input, chinese_character)],
+                         unicode_name,
+                         unicode_decomposition,
+                         unicode_decomposition_char)
         if input.startswith('x'):
             short_input = input[1:]
             if (short_input, chinese_character) in table:
