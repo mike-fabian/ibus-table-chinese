@@ -39,4 +39,4 @@ cmake_*install.cmake
 debug*s.list
 install_manifest.txt
 wubi-haifeng86.txt
-
+__pycache__/
