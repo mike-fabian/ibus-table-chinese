@@ -30,7 +30,15 @@ from typing import List
 from typing import Dict
 import re
 import unicodedata
+import urllib.request
 import logging
+
+IMPORT_CHINESE_VARIANTS_SUCCESSFUL = False
+try:
+    import chinese_variants
+    IMPORT_CHINESE_VARIANTS_SUCCESSFUL = True
+except (ImportError,):
+    IMPORT_CHINESE_VARIANTS_SUCCESSFUL = False
 
 def parse_args() -> Any:
     '''Parse the command line arguments'''
@@ -88,7 +96,7 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
             tail.append(line)
     for (input, chinese_character) in table:
         unicode_name = unicodedata.name(chinese_character, '')
-        if unicode_name.startswith('CJK COMPATIBILITY IDEOGRAPH'):
+        if False and unicode_name.startswith('CJK COMPATIBILITY IDEOGRAPH'):
             unicode_decomposition = unicodedata.decomposition(
                 chinese_character)
             unicode_decomposition_char = ''
@@ -102,6 +110,23 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
                          unicode_name,
                          unicode_decomposition,
                          unicode_decomposition_char)
+        if IMPORT_CHINESE_VARIANTS_SUCCESSFUL:
+            category = chinese_variants.detect_chinese_category(
+                chinese_character)
+            if category == 1:
+                used_in_taiwan = False
+                utf8_for_url = ''
+                for byte in chinese_character.encode('utf-8'):
+                    utf8_for_url += f'%{byte:X}'
+                url = (f'https://dict.revised.moe.edu.tw/'
+                       f'search.jsp?md=1&word={utf8_for_url}#searchL')
+                with urllib.request.urlopen(url) as f:
+                    page = f.read().decode('utf-8')
+                    if page and '查無資料' not in page:
+                        used_in_taiwan = True
+                logging.info(
+                    'Classified as simplified only: %s\t%s\tused_in_taiwan=%s',
+                    input, chinese_character, repr(used_in_taiwan))
         if input.startswith('x'):
             short_input = input[1:]
             if (short_input, chinese_character) in table:
