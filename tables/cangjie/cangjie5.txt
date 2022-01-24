@@ -37,7 +37,7 @@ UUID = 12c35711-1235-49aa-b144-472d1cf81aef
 ### A unique number indicates the version of this file.
 ### For example the last modified date of this file.
 ### This number must be less than 2^32.
-SERIAL_NUMBER = 20220111
+SERIAL_NUMBER = 20220123
 
 ICON = cangjie5.svg
 ### ICON = /usr/share/scim/icons/CangJie5.png
@@ -61,7 +61,7 @@ LANGUAGES = zh_TW,zh_HK,zh_CN,zh_SG
 ### cm2 means to show all characters but show simplified Chinese first
 ### cm3 means to show all characters but show traditional Chinese first
 ### cm4 means to show all characters
-LANGUAGE_FILTER = cm3
+LANGUAGE_FILTER = cm1
 
 ### Keys to select candidates
 SELECT_KEYS = 1,2,3,4,5,6,7,8,9
