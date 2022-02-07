@@ -1,2 +1,4 @@
-CONVERT_DB(erbi "erbi.txt" "erbi-qs.txt")
+CONVERT_DB(erbi
+    "${CMAKE_SOURCE_DIR}/tables/erbi/erbi.txt"
+    "${CMAKE_SOURCE_DIR}/tables/erbi/erbi-qs.txt")
 

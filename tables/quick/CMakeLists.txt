@@ -1,2 +1,5 @@
-CONVERT_DB(quick "quick3.txt" "quick5.txt" "quick-classic.txt")
+CONVERT_DB(quick
+    "${CMAKE_SOURCE_DIR}/tables/quick/quick3.txt"
+    "${CMAKE_SOURCE_DIR}/tables/quick/quick5.txt"
+    "${CMAKE_SOURCE_DIR}/tables/quick/quick-classic.txt")
 

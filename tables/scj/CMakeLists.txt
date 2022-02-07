@@ -1,2 +1,2 @@
-CONVERT_DB(scj "scj6.txt")
+CONVERT_DB(scj "${CMAKE_SOURCE_DIR}/tables/scj/scj6.txt")
 

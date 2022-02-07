@@ -5,6 +5,9 @@
 #    COMMENT "Building wubi-haifeng86.UTF-8"
 #    )
 
-MAKE_TABLE_SOURCE_TXT(wubi-haifeng86.txt wubi-haifeng86.head wubi-haifeng86.UTF-8 wubi-haifeng86.tail)
-CONVERT_DB(wubi-haifeng "wubi-haifeng86.txt")
+MAKE_TABLE_SOURCE_TXT(${CMAKE_CURRENT_BINARY_DIR}/wubi-haifeng86.txt
+    ${CMAKE_SOURCE_DIR}/tables/wubi-haifeng/wubi-haifeng86.head
+    ${CMAKE_SOURCE_DIR}/tables/wubi-haifeng/wubi-haifeng86.UTF-8
+    ${CMAKE_SOURCE_DIR}/tables/wubi-haifeng/wubi-haifeng86.tail)
+CONVERT_DB(wubi-haifeng "${CMAKE_CURRENT_BINARY_DIR}/wubi-haifeng86.txt")
 

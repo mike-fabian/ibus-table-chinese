@@ -76,7 +76,6 @@ ENDMACRO(MAKE_TABLE_SOURCE_TXT outputFile)
 ADD_CUSTOM_TARGET(convert_all ALL)
 
 MACRO(CONVERT_DB targetName)
-    SET(_tableList "")
     SET(_dependDb "")
     SET(_dependIcon "")
     FOREACH(_tabFile ${ARGN})
@@ -87,7 +86,7 @@ MACRO(CONVERT_DB targetName)
 	    DEPENDS ${_tabFile}
 	    COMMENT "Building ${_tabName} table"
 	    )
-	LIST(APPEND _dependDb "${_dbF}")
+	LIST(APPEND _dependDb "${CMAKE_CURRENT_BINARY_DIR}/${_dbF}")
 	IF(EXISTS "${CMAKE_SOURCE_DIR}/icons/${_tabName}.png")
 	    LIST(APPEND _dependIcon "${CMAKE_SOURCE_DIR}/icons/${_tabName}.png")
 	ELSEIF(EXISTS "${CMAKE_SOURCE_DIR}/icons/${_tabName}.svg")
