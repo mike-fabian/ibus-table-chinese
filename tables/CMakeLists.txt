@@ -45,21 +45,6 @@ MACRO(GENERATE_FREQ outputFile inputFile)
 ENDMACRO(GENERATE_FREQ outputFile inputFile)
 
 ################################################################
-# LOWERCASE_AND_SORT(outputFile inputFile)
-#
-MACRO(LOWERCASE_AND_SORT outputFile inputFile )
-    # Need to strip Unicode BOM (0xfeff)
-    ADD_CUSTOM_COMMAND(OUTPUT ${outputFile}
-	COMMAND cat ${inputFile}
-	| ${AWK_CMD} "{print tolower($0)}"
-	| sort > ${outputFile}
-	DEPENDS ${inputFile}
-	COMMENT "Lowercase and sort ${inputFile} to ${outputFile}"
-	VERBATIM
-	)
-ENDMACRO(LOWERCASE_AND_SORT outputFile inputFile)
-
-################################################################
 # MAKE_TABLE_SOURCE_TXT(outputFile inputFile1 [inputFile2 ....])
 #
 MACRO(MAKE_TABLE_SOURCE_TXT outputFile)
