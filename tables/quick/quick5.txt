@@ -38,7 +38,7 @@ UUID = 098d34b0-ea59-4957-baf0-c054ffffbf6a
 ### A unique number indicates the version of this file.
 ### For example the last modified date of this file.
 ### This number must be less than 2^32.
-SERIAL_NUMBER = 2009021601
+SERIAL_NUMBER = 2022020801
 
 ICON = quick5.png
 ### ICON = /usr/share/scim/icons/CangJie5.png
