@@ -1,9 +1,33 @@
-PRJ_VER=1.8.3
-SUMMARY=Add Suggestion mode to wubi; fix cangjie 3 and 5; fix description for stroke5
-BODHI_UPDATE_TYPE=bugfix
-REDHAT_BUGZILLA=1099380
-[Changes]
-- GH Pull 13 Fix description stroke5 in project.spec.in
-- GH Pull 14 Freezed cangjie 3 and 5's candidate order
-- GH Pull 15 Add SUGGESTION_MODE = TRUE to the wubi tables
+Release 1.8.8
 
+- Add PINYIN_MODE = TRUE to cangjie-big.txt, quick-classic.txt, and erbi.txt
+- Make “Traditional Chinese only” the default for quick5
+- Improve the quick5.txt table in a similar way the cangjie5.txt
+  table was recently improved
+  (Resolves: https://github.com/mike-fabian/ibus-table-chinese/issues/4)
+- Build outside of the source tree
+  (Resolves: https://github.com/mike-fabian/ibus-table-chinese/issues/2)
+
+Release 1.8.7
+
+- Make “Traditional Chinese only” the default for cangjie5
+  (Resolves https://github.com/mike-fabian/ibus-table-chinese/issues/2)
+
+Release 1.8.6
+
+- Increase serial number of cangjie5.txt and erbi-qs.txt
+
+Release 1.8.5
+
+- add table_extra tag for auxiliary code
+  (Resolves: https://github.com/definite/ibus-table-chinese/pull/18)
+
+Release 1.8.4
+
+- Another improvement for cangjie5.txt
+  (Resolves: https://github.com/mike-fabian/ibus-table/issues/87_
+- Updated README
+  (Includes: https://github.com/definite/ibus-table-chinese/pull/17)
+- Correct a misplaced non-alphabetic symbol
+  (Includes: https://github.com/definite/ibus-table-chinese/pull/16)
+- Simplify CMakeLists.txt to avoid requiring cmake-fedora

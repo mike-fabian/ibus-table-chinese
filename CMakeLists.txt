@@ -6,7 +6,13 @@ SET(CMAKE_INSTALL_PREFIX "/usr" CACHE PATH "Install dir prefix")
 ####################################################################
 # Project specific information
 #
-PROJECT(ibus-table-chinese NONE)
+PROJECT(
+ibus-table-chinese
+VERSION 1.8.8
+DESCRIPTION "Chinese input tables for IBus"
+HOMEPAGE_URL http://mike-fabian.github.io/ibus-table/
+LANGUAGES NONE # skip compiler checks, no compilers are needed
+)
 SET(PRJ_SUMMARY "Chinese input tables for IBus")
 
 SET(PRJ_DESCRIPTION
