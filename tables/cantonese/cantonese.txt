@@ -65,6 +65,11 @@ AUTO_COMMIT = FALSE
 ### If true then the inputted string will be automatically splitted during inputing.
 AUTO_SPLIT = FALSE
 
+### Whether support PinYin Mode, default is false.
+### This feature is just for Chinese, set it to False if your IM is not
+### Chinese.
+PINYIN_MODE = FALSE
+
 ### Whether to support suggestion mode, default is false.
 ### This feature is just for Chinese, set it to False if your IM is not
 ### Chinese.
