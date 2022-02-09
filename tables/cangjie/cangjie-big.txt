@@ -52,6 +52,11 @@ STATUS_PROMPT = 倉
 ### The Keyboard Layout used by this table. Unset or set to "Unknown" to accept any kind of layouts.
 KEYBOARD_LAYOUT = US_Default
 
+### Whether support PinYin Mode, default is false.
+### this feature is just for Chinese, set it to False if your IM is not
+### Chinese.
+PINYIN_MODE = TRUE
+
 ### Whether to support suggestion mode, default is false.
 ### This feature is just for Chinese, set it to False if your IM is not
 ### Chinese.
