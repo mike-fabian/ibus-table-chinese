@@ -161,8 +161,8 @@ PAGE_DOWN_KEYS = Page_Down,period,equal
 ### For input methods which do not input phrases, set this to False
 USER_CAN_DEFINE_PHRASE = FALSE
 
-### Whether support PinYin Mode, default is true.
-### this feature is just for Chinese, set it to False if your IM is not
+### Whether support PinYin Mode, default is false.
+### This feature is just for Chinese, set it to False if your IM is not
 ### Chinese.
 PINYIN_MODE = TRUE
 

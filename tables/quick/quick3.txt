@@ -88,8 +88,8 @@ MAX_KEY_LENGTH = 2
 ### Valid input chars.
 VALID_INPUT_CHARS = abcdefghijklmnopqrstuvwxyz
 
-### Whether support PinYin Mode, default is true.
-### this feature is just for Chinese, set it to False if your IM is not
+### Whether support PinYin Mode, default is false.
+### This feature is just for Chinese, set it to False if your IM is not
 ### Chinese.
 PINYIN_MODE = TRUE
 

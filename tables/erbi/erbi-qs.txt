@@ -59,7 +59,9 @@ VALID_INPUT_CHARS = abcdefghijklmnopqrstuvwxyz,./;'
 ### default is true
 USER_CAN_DEFINE_PHRASE = TRUE
 
-### Whether support PinYin Mode, default is true
+### Whether support PinYin Mode, default is false.
+### This feature is just for Chinese, set it to False if your IM is not
+### Chinese.
 PINYIN_MODE = TRUE
 
 ### Whether to support suggestion mode, default is false.
