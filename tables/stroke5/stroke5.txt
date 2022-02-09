@@ -72,6 +72,11 @@ KEYBOARD_LAYOUT = US_Default
 ### Chinese.
 PINYIN_MODE = TRUE
 
+### Whether to support suggestion mode, default is false.
+### This feature is just for Chinese, set it to False if your IM is not
+### Chinese.
+SUGGESTION_MODE = FALSE
+
 ### If true then the first candidate phrase
 ### will be selected automatically during input.
 AUTO_SELECT = FALSE

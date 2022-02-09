@@ -85,6 +85,11 @@ VALID_INPUT_CHARS = abcdefghijklmnopqrstuvwxyz
 ### Chinese.
 PINYIN_MODE = TRUE
 
+### Whether to support suggestion mode, default is false.
+### This feature is just for Chinese, set it to False if your IM is not
+### Chinese.
+SUGGESTION_MODE = FALSE
+
 ### Whether user are allow to define phrase, default is true
 ### You have to define the word construction rules below.
 ### For input methods which do not input phrases, set this to False

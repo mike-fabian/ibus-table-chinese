@@ -68,6 +68,11 @@ SYMBOL = 速㈢
 ### Prompt string to be displayed in the status area.
 STATUS_PROMPT = 速㈢
 
+### Whether to support suggestion mode, default is false.
+### This feature is just for Chinese, set it to False if your IM is not
+### Chinese.
+SUGGESTION_MODE = FALSE
+
 ### If true then the phrases' frequencies will be adjusted dynamically.
 DYNAMIC_ADJUST = FALSE
 
