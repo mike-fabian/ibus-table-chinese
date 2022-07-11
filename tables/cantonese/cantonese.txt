@@ -4693,7 +4693,7 @@ hui	墟	2
 hui	煦	2
 hui	去	2609
 hui	許	831
-huk 鵠	0
+huk	鵠	0
 huk	嗀	0
 huk	嘝	0
 huk	斛	0
