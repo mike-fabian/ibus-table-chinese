@@ -190,7 +190,7 @@ def create_freq_table(inputfilename: str) -> Dict[Tuple[str, str], str]:
     '''
     head: List[str] = []
     tail: List[str] = []
-    table: Dict[Tuple[str, str], int] = {}
+    table: Dict[Tuple[str, str], str] = {}
     reading_head = True
     reading_table = True
     reading_tail = True
@@ -272,7 +272,7 @@ def improve_jyutping(
     '''
     head: List[str] = []
     tail: List[str] = []
-    table: Dict[Tuple[str, str], int] = {}
+    table: Dict[Tuple[str, str], str] = {}
     reading_head = True
     reading_table = True
     reading_tail = True
@@ -291,7 +291,7 @@ def improve_jyutping(
                 (input,
                  chinese_character,
                  weight) = line.strip().split('\t')[:3]
-                table[(input, chinese_character)] = int(weight)
+                table[(input, chinese_character)] = weight
                 continue
             if reading_table:
                 logging.info('Table read.')
