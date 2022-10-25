@@ -1,3 +1,10 @@
+Release 1.8.10
+
+- Improve punctuation support in cangjie5.txt, cangjie3.txt, cangjie-big.txt,
+  quick5.txt, quick3.txt, quick-classic.txt
+  (Resolves: https://github.com/kaio/ibus-table/issues/73)
+  (Resolves: https://github.com/mike-fabian/ibus-table/issues/121)
+
 Release 1.8.9
 
 - Add tones to Jyutping.txt table
