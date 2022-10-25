@@ -98,19 +98,26 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
                 reading_head = False
                 continue
             if reading_table and not line.startswith('END_TABLE'):
+                stripped_line = line.strip().split('\t')
+                if len(stripped_line) < 4:
+                    stripped_line.append('')
                 (input,
                  chinese_character,
-                 weight) = line.strip().split('\t')[:3]
+                 weight,
+                 comment) = stripped_line
                 if (input, chinese_character) in table:
-                    first_weight = table[(input, chinese_character)]
+                    first_weight = table[(input, chinese_character)]['weight']
                     logging.warning(
                         'duplicate %s %s first weight=%s second weight=%s',
                         input, chinese_character,
                         first_weight, weight)
-                    table[(input, chinese_character)] = max(
+                    table[(input, chinese_character)]['weight'] = max(
                         int(weight), int(first_weight))
                     continue
-                table[(input, chinese_character)] = int(weight)
+                table[(input, chinese_character)] = {
+                    'weight': int(weight),
+                    'comment':  comment,
+                    }
                 continue
             if reading_table:
                 logging.info('Table read.')
@@ -128,7 +135,7 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
             logging.info('%s\t%s\t%s %s %s %s',
                          input,
                          chinese_character,
-                         table[(input, chinese_character)],
+                         table[(input, chinese_character)]['weight'],
                          unicode_name,
                          unicode_decomposition,
                          unicode_decomposition_char)
@@ -156,10 +163,10 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
             valid_input_chars_without_x = 'abcdefghijklmnopqrstuvwyz'
             for input1 in valid_input_chars_without_x:
                 if (input1, chinese_character) in table:
-                    table[(input1, chinese_character)] = 900
+                    table[(input1, chinese_character)]['weight'] = 900
                 for input2 in valid_input_chars_without_x:
                     if (input1 + input2, chinese_character) in table:
-                        table[(input1 + input2, chinese_character)] = 900
+                        table[(input1 + input2, chinese_character)]['weight'] = 900
     if IMPORT_CHINESE_VARIANTS_SUCCESSFUL:
         logging.info(
             'number_of_problems_with_chinese_variants=%s',
@@ -168,14 +175,19 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
         logging.info("output file=%s", outputfile)
         for line in head:
             outputfile.write('%s' % line)
-        for ((input, chinese_character), weight) in sorted(table.items(),
+        for ((input, chinese_character), value) in sorted(table.items(),
                                                    key=lambda x: (
                                                        x[0][0],
-                                                       -x[1],
+                                                       -x[1]['weight'],
                                                        ord(x[0][1]), # Unicode code point
                                                    )):
-            outputfile.write('%s\t%s\t%s\n'
-                             % (input, chinese_character, weight))
+            if value['comment']:
+                outputfile.write('%s\t%s\t%s\t%s\n'
+                                 % (input, chinese_character, value['weight'],
+                                    value['comment']))
+            else:
+                outputfile.write('%s\t%s\t%s\n'
+                                 % (input, chinese_character, value['weight']))
         for line in tail:
             outputfile.write('%s' % line)
 
