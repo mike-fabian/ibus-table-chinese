@@ -85,10 +85,17 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
                 reading_head = False
                 continue
             if reading_table and not line.startswith('END_TABLE'):
+                stripped_line = line.strip().split('\t')
+                if len(stripped_line) < 4:
+                    stripped_line.append('')
                 (input,
                  chinese_character,
-                 weight) = line.strip().split('\t')[:3]
-                table[(input, chinese_character)] = int(weight)
+                 weight,
+                 comment) = stripped_line
+                table[(input, chinese_character)] = {
+                    'weight': int(weight),
+                    'comment': comment,
+                    }
                 continue
             if reading_table:
                 logging.info('Table read.')
@@ -130,24 +137,30 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
         if input.startswith('x'):
             short_input = input[1:]
             if (short_input, chinese_character) in table:
-                table[(short_input, chinese_character)] = 900
+                table[(short_input, chinese_character)]['weight'] = 900
             valid_input_chars = 'abcdefghijklmnopqrstuvwxyz'
             max_key_length = 5
             if len(short_input) < max_key_length:
                 for extra_input in valid_input_chars:
                     if (short_input + extra_input, chinese_character) in table:
-                        table[(short_input + extra_input, chinese_character)] = 900
+                        table[(short_input + extra_input, chinese_character)][
+                            'weight']= 900
     with open(outputfilename, 'w') as outputfile:
         logging.info("output file=%s", outputfile)
         for line in head:
             outputfile.write('%s' % line)
-        for ((input, chinese_character), weight) in sorted(table.items(),
+        for ((input, chinese_character), value) in sorted(table.items(),
                                                    key=lambda x: (
                                                        x[0][0],
-                                                       -x[1]
+                                                       -x[1]['weight']
                                                    )):
-            outputfile.write('%s\t%s\t%s\n'
-                             % (input, chinese_character, weight))
+            if value['comment']:
+                outputfile.write('%s\t%s\t%s\t%s\n'
+                                 % (input, chinese_character, value['weight'],
+                                    value['comment']))
+            else:
+                outputfile.write('%s\t%s\t%s\n'
+                                 % (input, chinese_character, value['weight']))
         for line in tail:
             outputfile.write('%s' % line)
 
