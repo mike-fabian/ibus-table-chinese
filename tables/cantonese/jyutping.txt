@@ -293,6 +293,7 @@ aaq	氩	0
 aaq	氬	0
 aaq	襾	0
 aaq	𥺼	0
+aaq	錒	0
 aaqq	𠻺	0
 aat	押	361
 aat	壓	255
@@ -419,6 +420,7 @@ aiq	缢	0
 aiq	翳	0
 aiq	蘙	0
 aiq	豷	0
+aiq	嫕	0
 aix	矮	0
 aix	躷	0
 ak	握	2343
@@ -476,6 +478,7 @@ akv	豟	0
 akv	餩	0
 akv	齷	0
 akv	𠿟	0
+akv	阨	0
 am	暗	143
 am	庵	120
 am	黯	43
@@ -1227,6 +1230,7 @@ banq	鬓	0
 banq	𡣕	0
 banq	𢷤	0
 banq	𩯭	0
+banq	倴	0
 banqq	笨	144
 banqq	坌	3
 banqq	㤓	0
@@ -1273,6 +1277,7 @@ banv	𦆯	0
 banv	𧓍	0
 banv	𨮘	0
 banx	品	13263
+banx	稟	84
 banx	榀	0
 banx	禀	0
 bat	不	107418
@@ -1372,6 +1377,7 @@ batqq	駜	0
 batqq	魃	0
 batqq	鼥	0
 batqq	𢏺	0
+batqq	鮁	0
 batv	不	107418
 batv	筆	2136
 batv	畢	1144
@@ -1942,6 +1948,7 @@ binv	辫	0
 binv	边	0
 binv	鍽	0
 binv	鯿	0
+binv	煸	0
 binx	扁	208
 binx	貶	134
 binx	匾	47
@@ -2148,6 +2155,7 @@ biuv	驫	0
 biuv	骉	0
 biuv	髟	0
 biuv	麃	0
+biuv	杓	0
 biux	表	19444
 biux	裱	33
 biux	俵	12
@@ -3574,6 +3582,7 @@ caav	扠	0
 caav	艖	0
 caavv	查	5831
 caavv	茶	2571
+caavv	碴	36
 caavv	搽	9
 caavv	垞	6
 caavv	槎	3
@@ -3854,6 +3863,7 @@ camx	寝	0
 camx	碜	0
 camx	贂	0
 camx	踸	0
+camx	梫	0
 camxx	蕈	0
 can	親	5868
 can	陳	3130
@@ -4017,6 +4027,7 @@ canx	頣	0
 canx	駗	0
 canx	鬒	0
 canx	黰	0
+canx	畛	0
 cap	輯	589
 cap	緝	113
 cap	葺	11
@@ -4600,6 +4611,8 @@ ceoivv	锤	0
 ceoivv	随	0
 ceoivv	𡃴	0
 ceoivv	𥱥	0
+ceoivv	滁	0
+ceoivv	箠	0
 ceoix	取	10737
 ceoix	娶	112
 ceoix	㪜	0
@@ -4711,6 +4724,7 @@ ceonx	䮞	0
 ceonx	偆	0
 ceonx	惷	0
 ceonx	萶	0
+ceonx	踳	0
 ceot	出	43766
 ceot	齣	9
 ceot	㢡	0
@@ -4747,6 +4761,7 @@ cex	扯	347
 cex	偖	0
 cex	撦	0
 cex	𠳏	0
+cexx	灺	0
 ci	此	16270
 ci	次	13301
 ci	持	7278
@@ -7427,6 +7442,7 @@ cyutq	撮	109
 cyutq	猝	18
 cyutq	𢸶	0
 cyuvv	廚	234
+cyuvv	櫥	60
 cyuvv	躇	44
 cyuvv	滁	17
 cyuvv	躕	11
@@ -7772,6 +7788,7 @@ daanv	𡛓	0
 daanv	𤘪	0
 daanv	𤩧	0
 daanv	𨭐	0
+daanv	匰	0
 daanx	刐	0
 daanx	撣	0
 daap	答	2326
@@ -7835,6 +7852,7 @@ daapq	笚	0
 daapq	耷	0
 daapq	𤺥	0
 daapq	𥅽	0
+daapq	鎝	0
 daapqq	踏	753
 daapqq	沓	18
 daapqq	蹋	16
@@ -8748,6 +8766,7 @@ dim	𥺦	0
 dimq	店	1223
 dimq	惦	41
 dimq	玷	13
+dimq	踮	11
 dimq	坫	3
 dimq	㓠	0
 dimq	㝪	0
@@ -8916,6 +8935,7 @@ dingx	艼	0
 dingx	薡	0
 dingx	鐤	0
 dingx	顶	0
+dinq	墊	0
 dinqq	電	27905
 dinqq	澱	442
 dinqq	殿	386
@@ -9307,6 +9327,7 @@ doekq	啅	0
 doekq	椓	0
 doekq	诼	0
 doekq	𣄽	0
+doekq	斲	0
 doeng	啄	0
 doeng	𡁷	0
 doengv	𡁷	0
@@ -9443,6 +9464,7 @@ dong	钂	0
 dong	铛	0
 dong	闣	0
 dong	鼞	0
+dongq	檔	631
 dongq	壋	0
 dongq	闣	0
 dongqq	蕩	1172
@@ -10460,6 +10482,7 @@ faiq	胇	0
 faiq	芾	0
 faiq	费	0
 faiq	镄	0
+faiq	剕	0
 faiqq	吠	40
 faiqq	萉	0
 faiqq	鼣	0
@@ -10468,6 +10491,7 @@ faiv	輝	727
 faiv	徽	438
 faiv	暉	40
 faiv	翬	40
+faiv	煇	10
 faiv	麾	9
 faiv	撝	1
 faiv	隳	1
@@ -11228,6 +11252,7 @@ fokq	貜	0
 fokq	躩	0
 fokq	钁	0
 fokq	靃	0
+fokq	劐	0
 fong	方	33578
 fong	放	11326
 fong	況	7840
@@ -13041,6 +13066,7 @@ gaav	嘉	347
 gaav	噶	104
 gaav	枷	61
 gaav	伽	49
+gaav	迦	44
 gaav	傢	35
 gaav	鎵	30
 gaav	葭	14
@@ -13080,6 +13106,7 @@ gaav	𩶛	0
 gaax	假	2329
 gaax	賈	265
 gaax	斝	19
+gaax	尕	6
 gaax	䑝	0
 gaax	叚	0
 gaax	婽	0
@@ -13439,6 +13466,7 @@ ganv	觔	0
 ganv	釿	0
 ganv	𦶠	0
 ganv	𩂋	0
+ganv	哏	0
 ganx	僅	4462
 ganx	緊	4436
 ganx	謹	161
@@ -13734,6 +13762,7 @@ gauv	鬮	0
 gauv	鸠	0
 gauv	𤄄	0
 gauv	𨳊	0
+gauv	佝	0
 gaux	九	11430
 gaux	久	2747
 gaux	糾	710
@@ -13946,6 +13975,7 @@ geiqq	諅	0
 geiqq	跽	0
 geiqq	鬾	0
 geiqq	鵋	0
+geiqq	徛	0
 geiv	機	23742
 geiv	基	12619
 geiv	肌	532
@@ -13957,6 +13987,7 @@ geiv	丌	59
 geiv	羈	57
 geiv	箕	56
 geiv	譏	54
+geiv	几	37
 geiv	剞	22
 geiv	禨	16
 geiv	鞿	16
@@ -14523,6 +14554,7 @@ gingq	迳	0
 gingq	逕	0
 gingqq	勁	809
 gingqq	競	736
+gingqq	痙	31
 gingqq	倞	0
 gingqq	劤	0
 gingqq	劲	0
@@ -15243,6 +15275,7 @@ gongv	剛	2480
 gongv	綱	1038
 gongv	缸	849
 gongv	崗	540
+gongv	杠	307
 gongv	扛	212
 gongv	岡	195
 gongv	肛	16
@@ -15307,6 +15340,7 @@ gonv	酐	0
 gonv	鳱	0
 gonv	𣔼	0
 gonx	趕	1880
+gonx	桿	717
 gonx	稈	336
 gonx	䵟	0
 gonx	擀	0
@@ -15451,6 +15485,7 @@ gov	滒	0
 gov	菏	0
 gov	謌	0
 gov	𡟵	0
+gov	牁	0
 gox	嗰	10
 gox	哿	0
 gox	笴	0
@@ -17281,6 +17316,7 @@ haaiqq	迦	0
 haaiqq	韰	0
 haaiqq	齘	0
 haaiv	揩	62
+haaiv	嗨	0
 haaivv	鞋	565
 haaivv	諧	546
 haaivv	孩	462
@@ -17503,6 +17539,7 @@ haanv	臤	0
 haanv	顅	0
 haanvv	閒	476
 haanvv	嫻	52
+haanvv	癇	7
 haanvv	閑	3
 haanvv	㯗	0
 haanvv	娴	0
@@ -17572,6 +17609,7 @@ haapqq	峽	672
 haapqq	狹	340
 haapqq	匣	55
 haapqq	狎	11
+haapqq	硤	5
 haapqq	㘡	0
 haapqq	㭱	0
 haapqq	䖖	0
@@ -18255,6 +18293,7 @@ hapqq	耠	0
 hapqq	鑉	0
 hapqq	铪	0
 hapqq	阖	0
+hapqq	匼	0
 hapv	恰	829
 hapv	洽	78
 hapv	䁍	0
@@ -19903,6 +19942,7 @@ honqq	焊	346
 honqq	翰	143
 honqq	捍	127
 honqq	扞	82
+honqq	悍	56
 honqq	瀚	34
 honqq	㢨	0
 honqq	㪋	0
@@ -20398,6 +20438,7 @@ hungvv	洪	1217
 hungvv	鴻	607
 hungvv	熊	393
 hungvv	虹	146
+hungvv	訌	8
 hungvv	蕻	6
 hungvv	黌	1
 hungvv	㖓	0
@@ -20432,6 +20473,7 @@ hungvv	𪃡	0
 hungvv	𫚉	0
 hungx	孔	2814
 hungx	恐	829
+hungx	倥	4
 hungx	𢙢	0
 hungx	𣏺	0
 hyun	圈	1648
@@ -21114,6 +21156,7 @@ japv	湇	0
 japv	熠	0
 japv	裛	0
 japv	𦒉	0
+japv	潝	0
 jat	一	166396
 jat	日	20404
 jat	溢	255
@@ -23021,6 +23064,7 @@ jiqq	贰	0
 jiqq	龭	0
 jiqq	𤜥	0
 jiqq	𤩺	0
+jiqq	佴	0
 jit	熱	10075
 jit	腋	41
 jit	拽	37
@@ -23453,6 +23497,8 @@ jivv	𤪦	0
 jivv	𦲀	0
 jivv	𩓧	0
 jivv	𫍙	0
+jivv	儿	0
+jivv	嶷	0
 jix	椅	280
 jix	倚	208
 jix	綺	63
@@ -23466,6 +23512,7 @@ jix	齮	0
 jix	𣺈	0
 jix	𤀽	0
 jix	𦿟	0
+jix	踦	0
 jixx	以	60842
 jixx	已	14565
 jixx	議	8405
@@ -23503,6 +23550,7 @@ jixx	𡉏	0
 jixx	𤣱	0
 jixx	𤤳	0
 jixx	𦢈	0
+jixx	珥	0
 jo	喲	212
 jo	唷	41
 jo	哟	0
@@ -24695,6 +24743,7 @@ jyunvv	園	1394
 jyunvv	緣	1018
 jyunvv	鉛	880
 jyunvv	懸	714
+jyunvv	烷	460
 jyunvv	玄	375
 jyunvv	丸	177
 jyunvv	猿	47
@@ -24844,6 +24893,7 @@ jyuqq	鸒	0
 jyuqq	龥	0
 jyuqq	𡒊	0
 jyuqq	𣈯	0
+jyuqq	瘉	0
 jyut	月	15345
 jyut	越	7405
 jyut	乙	2700
@@ -24936,6 +24986,7 @@ jyutqq	𧑐	0
 jyutqq	𧞄	0
 jyutqq	𨬓	0
 jyutqq	𫐄	0
+jyutqq	跀	0
 jyuv	於	42647
 jyuv	于	1727
 jyuv	淤	100
@@ -25121,6 +25172,7 @@ jyuxx	𧱬	0
 jyuxx	𨦫	0
 jyuxx	𨨶	0
 jyuxx	𨺲	0
+jyuxx	擩	0
 kaa	卡	1690
 kaa	喀	287
 kaa	㤉	0
@@ -26527,6 +26579,7 @@ koeng	謽	0
 koeng	鏹	0
 koeng	镪	0
 koeng	𣚦	0
+koengqq	弶	0
 koengvv	強	11329
 koengvv	㩖	0
 koengvv	嵹	0
@@ -26541,6 +26594,7 @@ koengxx	羟	0
 koengxx	謽	0
 koengxx	鏹	0
 koengxx	镪	0
+koengxx	膙	0
 koi	概	2247
 koi	蓋	1807
 koi	鈣	573
@@ -26660,6 +26714,7 @@ kokq	礭	0
 kokq	𡌃	0
 kokq	𢡱	0
 kokq	𤥢	0
+kokq	搉	0
 kokv	搉	0
 kong	抗	3665
 kong	炕	229
@@ -27145,6 +27200,7 @@ kwaiv	蝰	0
 kwaiv	规	0
 kwaiv	闚	0
 kwaiv	鬹	0
+kwaiv	雟	0
 kwaivv	攜	254
 kwaivv	葵	67
 kwaivv	夔	46
@@ -27188,6 +27244,7 @@ kwaivv	𧃍	0
 kwaivv	𧤤	0
 kwaivv	𩓚	0
 kwaivv	𪆴	0
+kwaivv	喹	0
 kwaix	跬	2
 kwaix	䞨	0
 kwaix	煃	0
@@ -27947,6 +28004,7 @@ laapqq	蜡	0
 laapqq	邋	0
 laapqq	鉝	0
 laapqq	鑞	0
+laaq	喇	191
 laaq	罅	1
 laaq	㙤	0
 laaq	嘑	0
@@ -28312,6 +28370,7 @@ lamvv	晽	0
 lamvv	碄	0
 lamvv	箖	0
 lamvv	𧯴	0
+lamvv	啉	0
 lamxx	凜	58
 lamxx	檁	10
 lamxx	廩	9
@@ -29086,6 +29145,7 @@ leoi	𩸭	0
 leoiqq	類	8294
 leoiqq	慮	1745
 leoiqq	累	1518
+leoiqq	淚	1087
 leoiqq	濾	997
 leoiqq	戾	10
 leoiqq	礧	5
@@ -29320,6 +29380,7 @@ leonqq	論	11693
 leonqq	吝	39
 leonqq	藺	19
 leonqq	躪	19
+leonqq	膦	3
 leonqq	㖁	0
 leonqq	䉮	0
 leonqq	䫰	0
@@ -29570,6 +29631,7 @@ likqq	歷	6181
 likqq	曆	262
 likqq	瀝	224
 likqq	嚦	219
+likqq	壢	39
 likqq	酈	33
 likqq	鬲	6
 likqq	藶	1
@@ -30879,6 +30941,7 @@ longqq	䕞	0
 longqq	埌	0
 longqq	蒗	0
 longqq	𧚅	0
+longqq	崀	0
 longv	啷	12
 longvv	郎	461
 longvv	狼	307
@@ -30927,6 +30990,7 @@ longxx	𤎜	0
 longxx	𤨡	0
 loq	摞	4
 loq	𤓓	0
+loqq	摞	4
 loqq	㿚	0
 loqq	䇔	0
 loqq	纙	0
@@ -34328,6 +34392,7 @@ mut	𠰌	0
 mut	𤣻	0
 mut	𧻙	0
 mutq	抹	433
+mutq	秣	7
 mutq	瀎	0
 mutqq	沒	16236
 mutqq	末	2124
@@ -34352,6 +34417,7 @@ mutqq	𤣻	0
 mutqq	𧻙	0
 mutv	𠰌	0
 mvv	唔	15
+mx	呣	3
 naa	那	20332
 naa	拿	2668
 naa	娜	21
@@ -34555,6 +34621,7 @@ naauqq	淖	0
 naauqq	臑	0
 naauqq	閙	0
 naauqq	闹	0
+naauv	孬	7
 naauvv	鐃	15
 naauvv	橈	3
 naauvv	呶	0
@@ -34886,6 +34953,7 @@ neot	讷	0
 neot	豽	0
 neot	貀	0
 neotqq	訥	44
+neotqq	肭	1
 neotqq	㕯	0
 neotqq	抐	0
 neotqq	讷	0
@@ -35276,10 +35344,12 @@ ngaavv	芽	888
 ngaavv	衙	175
 ngaavv	蚜	99
 ngaavv	伢	16
+ngaavv	岈	1
 ngaavv	㧎	0
 ngaavv	䄰	0
 ngaavv	笌	0
 ngaavv	齖	0
+ngaavv	釾	0
 ngaaxx	瓦	1705
 ngaaxx	雅	456
 ngaaxx	佤	9
@@ -36685,12 +36755,15 @@ nou	蝚	0
 nou	驽	0
 nou	𨥬	0
 nouqq	怒	732
+nouqq	臑	5
 nouvv	奴	1270
 nouvv	孥	33
 nouvv	駑	2
 nouvv	㚢	0
 nouvv	笯	0
 nouvv	驽	0
+nouvv	夒	0
+nouvv	憹	0
 nouxx	努	1799
 nouxx	腦	1764
 nouxx	惱	215
@@ -37024,6 +37097,7 @@ onv	胺	0
 onv	铵	0
 onv	鞌	0
 onv	𤇼	0
+onv	鮟	0
 ou	奧	655
 ou	澳	282
 ou	襖	79
@@ -37088,6 +37162,7 @@ ouq	扷	0
 ouq	芺	0
 ouq	鐭	0
 ouq	𥜌	0
+ouv	爊	1
 ouv	㩠	0
 ouv	䥝	0
 oux	襖	79
@@ -37268,6 +37343,7 @@ paang	鹏	0
 paang	𢴒	0
 paang	𢵓	0
 paang	𨭌	0
+paangqq	甏	0
 paangv	烹	342
 paangv	㤣	0
 paangv	㧸	0
@@ -37550,6 +37626,7 @@ pat	鵯	0
 pat	𢳂	0
 pat	𤴓	0
 patv	匹	345
+patv	疋	11
 patv	鴄	0
 pau	剖	291
 pau	瓿	8
@@ -38349,6 +38426,7 @@ pong	𤧭	0
 pongq	謗	76
 pongq	搒	3
 pongq	谤	0
+pongq	肨	0
 pongv	雱	1
 pongv	䏺	0
 pongvv	旁	1483
@@ -38357,6 +38435,7 @@ pongvv	螃	16
 pongvv	滂	8
 pongvv	徬	6
 pongvv	逄	1
+pongvv	雱	1
 pongvv	㝑	0
 pongvv	㥬	0
 pongvv	㫄	0
@@ -38375,6 +38454,7 @@ pongvv	龎	0
 pongvv	𤧭	0
 pongx	嗙	1
 pongxx	蚌	163
+pongxx	嗙	1
 pongxx	䎧	0
 pongxx	䖫	0
 pongxx	耪	0
@@ -38568,6 +38648,7 @@ puiv	柸	0
 puiv	炋	0
 puiv	肧	0
 puiv	衃	0
+puiv	㾦	0
 puivv	培	2345
 puivv	陪	470
 puivv	賠	329
@@ -38943,6 +39024,7 @@ saamv	钐	0
 saamv	鬖	0
 saamv	𠚹	0
 saamx	鏒	0
+saamx	糝	0
 saan	山	12193
 saan	散	2780
 saan	篡	354
@@ -39784,6 +39866,7 @@ sapv	溼	4
 sapv	湿	0
 sapv	澁	0
 sapv	譅	0
+sapv	澀	0
 sat	實	24404
 sat	失	5120
 sat	室	2793
@@ -40012,6 +40095,7 @@ saux	守	2674
 saux	擻	25
 saux	藪	8
 saux	叟	3
+saux	滫	2
 saux	瞍	1
 saux	㝊	0
 saux	䏂	0
@@ -40448,6 +40532,7 @@ seoiv	鑐	0
 seoiv	须	0
 seoiv	𤟠	0
 seoiv	𦷪	0
+seoiv	眭	0
 seoivv	誰	2325
 seoivv	垂	2152
 seoivv	陲	23
@@ -44138,6 +44223,7 @@ tangvv	騰	822
 tangvv	疼	249
 tangvv	藤	189
 tangvv	滕	23
+tangvv	螣	13
 tangvv	籐	7
 tangvv	謄	5
 tangvv	䕨	0
@@ -44465,6 +44551,7 @@ timxx	簟	12
 timxx	㶘	0
 timxx	餂	0
 timxx	驔	0
+timxx	掭	0
 tin	天	20743
 tin	田	4193
 tin	填	806
@@ -44693,6 +44780,7 @@ tinx	琠	0
 tinx	覥	0
 tinx	賟	0
 tinx	錪	0
+tinx	㥏	0
 tinxx	殄	7
 tinxx	㥏	0
 tip	貼	822
@@ -45711,6 +45799,7 @@ tungvv	鮦	0
 tungvv	𥖹	0
 tungvv	𦒍	0
 tungvv	𦨴	0
+tungvv	衕	0
 tungx	統	12143
 tungx	捅	442
 tungx	桶	20
@@ -46276,6 +46365,7 @@ waav	𪎩	0
 waavv	華	8116
 waavv	樺	105
 waavv	鏵	87
+waavv	划	20
 waavv	驊	5
 waavv	㟆	0
 waavv	㠏	0
@@ -47341,6 +47431,7 @@ wingqq	𤃡	0
 wingqq	𦻑	0
 wingqq	𩓙	0
 wingqq	𪷿	0
+wingv	扔	197
 wingv	𢫕	0
 wingvv	榮	1361
 wingvv	嶸	7
@@ -48920,6 +49011,7 @@ zaaq	痄	0
 zaaq	苲	0
 zaaq	诈	0
 zaaq	醡	0
+zaaq	砟	0
 zaaqq	膪	0
 zaaqq	𧨊	0
 zaat	軋	1202
@@ -48967,6 +49059,7 @@ zaat	𥕝	0
 zaatq	扎	1079
 zaatq	紮	184
 zaatq	札	61
+zaatq	鍘	36
 zaatq	拶	3
 zaatq	㞉	0
 zaatq	㦫	0
@@ -49575,6 +49668,7 @@ zang	鿇	0
 zang	𠆤	0
 zang	𢛵	0
 zang	𤺧	0
+zangq	諍	0
 zangqq	贈	234
 zangqq	甑	16
 zangqq	䰝	0
@@ -49659,6 +49753,7 @@ zanv	𨫎	0
 zanx	稹	12
 zanx	縝	11
 zanx	軫	8
+zanx	袗	6
 zanx	畛	3
 zanx	抮	0
 zanx	眕	0
@@ -51536,6 +51631,7 @@ zimv	占	159
 zimv	瞻	85
 zimv	詹	68
 zimv	譫	3
+zimv	櫼	3
 zimv	臢	1
 zimv	覘	1
 zimv	䀡	0
@@ -53144,6 +53240,7 @@ zoengv	𥪮	0
 zoengv	𪋟	0
 zoengx	掌	2500
 zoengx	獎	956
+zoengx	蔣	594
 zoengx	漲	475
 zoengx	槳	80
 zoengx	仉	6
@@ -53263,6 +53360,7 @@ zokqq	柞	17
 zokqq	濯	12
 zokqq	擢	11
 zokqq	酢	2
+zokqq	怍	2
 zokqq	䋏	0
 zokqq	䝫	0
 zokqq	䥣	0
@@ -53662,6 +53760,7 @@ zukv	燭	11
 zukv	浞	7
 zukv	柷	4
 zukv	筑	3
+zukv	瘃	1
 zukv	㔉	0
 zukv	䌵	0
 zukv	䥮	0
