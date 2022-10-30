@@ -288,10 +288,17 @@ def improve_jyutping(
                 reading_head = False
                 continue
             if reading_table and not line.startswith('END_TABLE'):
+                stripped_line = line.strip().split('\t')
+                if len(stripped_line) < 4:
+                    stripped_line.append('')
                 (input,
                  chinese_character,
-                 weight) = line.strip().split('\t')[:3]
-                table[(input, chinese_character)] = weight
+                 weight,
+                 comment) = stripped_line
+                table[(input, chinese_character)] = {
+                    'weight': int(weight),
+                    'comment': comment,
+                    }
                 continue
             if reading_table:
                 logging.info('Table read.')
@@ -299,7 +306,8 @@ def improve_jyutping(
             tail.append(line)
     for (pinyin_toneless, chinese_character) in all_pinyin:
         if (pinyin_toneless, chinese_character) in table:
-            frequency_orig = table[(pinyin_toneless, chinese_character)]
+            frequency_orig = table[
+                (pinyin_toneless, chinese_character)]['weight']
             frequency = all_pinyin[
                 (pinyin_toneless, chinese_character)]['frequency']
             pinyin = all_pinyin[
@@ -310,15 +318,16 @@ def improve_jyutping(
                 logging.info(
                     'Adding frequency from cantonese.txt %s %s %s -> %s',
                     pinyin_toneless, chinese_character, frequency_orig, frequency)
-                table[(pinyin_toneless, chinese_character)] = frequency
+                table[(pinyin_toneless, chinese_character)][
+                    'weight'] = frequency
             if (pinyin_toneless != pinyin_letters
                 and pinyin_letters.startswith(pinyin_toneless)
                 and (pinyin_letters, chinese_character) not in table):
                 logging.info(
                     'Adding tone %s %s -> %s -> %s',
                     pinyin_toneless, chinese_character, pinyin, pinyin_letters)
-                table[(pinyin_letters, chinese_character)] = (
-                    table[(pinyin_toneless, chinese_character)])
+                table[(pinyin_letters, chinese_character)]['weight'] = (
+                    table[(pinyin_toneless, chinese_character)]['weight'])
                 # Keep entry with the toneless pinyin to make typing
                 # without pinyin still get exact matches, i.e. do not
                 # delete the toneless entry:
@@ -327,14 +336,19 @@ def improve_jyutping(
         logging.info("output file=%s", outputfile)
         for line in head:
             outputfile.write('%s' % line)
-        for ((input, chinese_character), weight) in sorted(table.items(),
+        for ((input, chinese_character), value) in sorted(table.items(),
                                                    key=lambda x: (
                                                        x[0][0],   # input
                                                        #x[0][1],   # Chinese character
-                                                       -int(x[1]) # weight
+                                                       -x[1]['weight'], # weight
                                                    )):
-            outputfile.write(
-                f'{input}\t{chinese_character}\t{weight}\n')
+            if value['comment']:
+                outputfile.write(
+                    f'{input}\t{chinese_character}\t'
+                    f'{value["weight"]}\t{value["comment"]}\n')
+            else:
+                outputfile.write(
+                    f'{input}\t{chinese_character}\t{value["weight"]}\n')
         for line in tail:
             outputfile.write('%s' % line)
 
