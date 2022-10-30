@@ -1,3 +1,10 @@
+Release 1.8.11
+
+- Improve punctuation support in jyutping.txt, cantonese.txt, cantonhk.txt, cantonyale.txt
+  (Resolves: https://github.com/mike-fabian/ibus-table-chinese/issues/7)
+- Improve “improve_jyutping.py” to allow comments in the table
+- Update of jyutping.txt for Unicode 15.0.0 final release
+
 Release 1.8.10
 
 - Improve punctuation support in cangjie5.txt, cangjie3.txt, cangjie-big.txt,
