@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="inputmethod">
+  <id>org.freedesktop.ibus.engine.table.wu</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <name>Wu pronunciation input method</name>
+  <summary>Chinese input method</summary>
+  <description>
+    <p>
+      Wu pronunciation input method.
+    </p>
+    <p>
+      Input methods are typing systems allowing users to input complex
+      languages.  They are necessary because these contain too many
+      characters to simply be laid out on a traditional keyboard.
+    </p>
+  </description>
+  <keywords>
+    <keyword>input-method</keyword>
+    <keyword>Chinese</keyword>
+  </keywords>
+  <icon type="remote" width="64" height="64">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/wu.svg</icon>
+  <icon type="remote" width="128" height="128">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/wu.svg</icon>
+  <icon type="remote" width="256" height="256">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/wu.svg</icon>
+  <icon type="remote">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/wu.svg</icon>
+  <url type="homepage">https://github.com/mike-fabian/ibus-table</url>
+  <url type="bugtracker">https://github.com/mike-fabian/ibus-table/issues</url>
+  <url type="help">https://mike-fabian.github.io/ibus-table</url>
+  <url type="translate">https://translate.fedoraproject.org/projects/ibus-table/</url>
+  <content_rating type="oars-1.1" />
+  <languages>
+    <lang percentage="100">zh_CN</lang>
+    <lang percentage="100">zh_HK</lang>
+    <lang percentage="100">zh_SG</lang>
+    <lang percentage="100">zh_TW</lang>
+  </languages>
+  <project_license>GPL-3.0-or-later</project_license>
+  <update_contact>mfabian@redhat.com</update_contact>
+</component>
