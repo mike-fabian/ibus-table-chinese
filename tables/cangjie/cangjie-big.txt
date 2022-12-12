@@ -9,7 +9,7 @@ VERSION_1_0
 BEGIN_DEFINITION
 
 ### License
-LICENSE =  GPLv2
+LICENSE = GPL-2.0-only
 
 ### An unique id to distinguish this table among others.
 ### Use uuidgen to generate this kind of id.

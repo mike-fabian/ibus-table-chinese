@@ -12,7 +12,7 @@
 BEGIN_DEFINITION
 
 ### License
-LICENSE = BSD
+LICENSE = 0BSD
 
 ### Original table author
 AUTHOR = SUN Haifeng <okuc at 163.com>

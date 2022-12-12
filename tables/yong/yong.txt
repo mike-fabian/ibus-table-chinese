@@ -5,7 +5,7 @@
 BEGIN_DEFINITION
 
 ### License
-LICENSE =  GPLv3
+LICENSE = GPL-3.0-only
 
 ### Original table author
 AUTHOR = dgod <dgod.osa@gmail.com>
