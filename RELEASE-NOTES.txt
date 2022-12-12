@@ -1,3 +1,9 @@
+Release 1.8.12
+
+- Add appdata.xml files
+- Convert license tags to SPDX format
+- Add .svg icon files for use in appdata.xml files
+
 Release 1.8.11
 
 - Improve punctuation support in jyutping.txt, cantonese.txt, cantonhk.txt, cantonyale.txt
