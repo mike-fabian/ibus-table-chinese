@@ -20,10 +20,10 @@
     <keyword>input-method</keyword>
     <keyword>Chinese</keyword>
   </keywords>
-  <icon type="remote" width="64" height="64">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/quick.svg</icon>
-  <icon type="remote" width="128" height="128">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/quick.svg</icon>
-  <icon type="remote" width="256" height="256">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/quick.svg</icon>
-  <icon type="remote">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/quick.svg</icon>
+  <icon type="remote" width="64" height="64">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/quick-classic.svg</icon>
+  <icon type="remote" width="128" height="128">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/quick-classic.svg</icon>
+  <icon type="remote" width="256" height="256">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/quick-classic.svg</icon>
+  <icon type="remote">https://raw.githubusercontent.com/mike-fabian/ibus-table-chinese/main/icons/quick-classic.svg</icon>
   <url type="homepage">https://github.com/mike-fabian/ibus-table</url>
   <url type="bugtracker">https://github.com/mike-fabian/ibus-table/issues</url>
   <url type="help">https://mike-fabian.github.io/ibus-table</url>
