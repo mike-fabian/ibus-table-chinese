@@ -24,7 +24,7 @@ UUID = b9ecb257-6d22-46db-9ad2-7e0cebb69df3
 ### A unique number indicates the version of this file.
 ### For example the last modified date of this file.
 ### This number must be less than 2^32.
-SERIAL_NUMBER = 20101124
+SERIAL_NUMBER = 20250526
 
 ICON = wubi-haifeng86.svg
 

@@ -29,7 +29,7 @@ UUID = 3a799bf4-b978-4282-826f-2339ea468c27
 ### A unique number indicates the version of this file.
 ### For example the last modified date of this file.
 ### This number must be less than 2^32.
-SERIAL_NUMBER = 20081205
+SERIAL_NUMBER = 20250526
 
 ICON = wubi-jidian86.svg
 
@@ -2495,7 +2495,6 @@ gqr	殊	6890000
 gqt	歼	4400000
 gqu	殚	358000
 gqv	兀	2370000
-gqv	兀	2370000
 gqw	殓	583000
 gqx	死	498000000
 gqy	玖	5360000
@@ -8818,7 +8817,6 @@ aeio	七月流火	158000
 aeiq	散光	1150000
 aeis	散酒	62000
 aejj	𦮯	0
-aejn	﨟	31200
 aejr	𦼳	0
 aekf	菜叶	550000
 aekk	菜品	1380000
@@ -13317,7 +13315,6 @@ attd	蓬乱	363000
 atte	𦽧	0
 attf	医德	1260000
 attg	医生	54700000
-attg	蘒	3540
 attl	医务	5890000
 attn	𦳁	0
 attq	蒙特利尔	1400000
@@ -13325,7 +13322,6 @@ attr	斯科特	1290000
 attt	蕧	25000
 attu	䔉	4440
 attu	医科	12700000
-attx	蘒	3540
 atty	攻入	1600000
 atub	医疗	96900000
 atud	攻关	5720000
@@ -16327,7 +16323,6 @@ booy	𦖠	0
 booy	𨽓	0
 boqd	𨼺	0
 boqh	隣	24700000
-boqh	隣	3090000
 boqh	𦗲	0
 bora	出类拔萃	1400000
 boty	𨻖	0
@@ -17294,7 +17289,6 @@ bwuo	出人意料	2980000
 bwuq	出人意外	409000
 bwva	坠毁	2250000
 bwvi	附录	4570000
-bwvm	﨩	22800
 bwvn	聁	33600
 bwvn	𨸣	0
 bwvo	隝	28300
@@ -29091,7 +29085,6 @@ eyxt	脉络	2610000
 eyxy	胘	39800
 eyxy	臃	281000
 eyyn	助记词	9400
-eyyp	﨤	31100
 eyyt	脏话	1620000
 eyyt	𦢵	0
 eyyy	受让方	1010000
@@ -31811,7 +31804,6 @@ fhud	𧽑	0
 fhud	𧽦	0
 fhud	𧾪	0
 fhue	超前	6490000
-fhuf	﨣	32300
 fhuf	𧺯	0
 fhuf	𧺾	0
 fhuf	𧽿	0
@@ -32112,7 +32104,6 @@ finf	求导	122000
 finf	𩅵	0
 fing	求情	1260000
 finh	𩅹	0
-finn	礼	5750000
 finp	违法必究	293000
 fint	未必	18200000
 finy	未尽	2110000
@@ -33934,7 +33925,6 @@ fpgc	縠	198000
 fpgc	觳	379000
 fpgc	豰	35000
 fpgc	轂	181000
-fpgc	嗀	3280
 fpgc	𣚯	0
 fpgc	𣪊	0
 fpgc	𣪒	0
@@ -35953,7 +35943,6 @@ fwwh	𢂯	0
 fwwj	𠟩	0
 fwwj	𠟴	0
 fwwk	嗇	121000
-fwwk	﨏	49400
 fwwk	𪌦	0
 fwwl	𠢳	0
 fwwl	𤲷	0
@@ -55298,7 +55287,6 @@ jtgf	𣇦	0
 jtgf	𧌯	0
 jtgg	甠	44900
 jtgg	蜂王	536000
-jtgg	﨡	25500
 jtgg	𧍰	0
 jtgh	𣌜	0
 jtgj	日复一日	2540000
@@ -68583,7 +68571,6 @@ mukg	賠	4470000
 mukg	赔	36500000
 mukh	嵜	178000
 mukh	赚足	1260000
-mukh	﨑	802000
 mukk	赠品	8040000
 mukl	赠别	157000
 mukm	邮递员	532000
@@ -68631,7 +68618,6 @@ musg	崷	759000
 musg	赔本	1010000
 musg	𡺚	0
 musk	嵜	178000
-musk	﨑	802000
 musn	同病相怜	485000
 musq	䞋	3450
 mute	嵃	253000
@@ -82453,7 +82439,6 @@ qfrr	勾魂摄魄	236000
 qfsm	铲土机	23400
 qfso	钟鼓楼	509000
 qfta	镇长	2130000
-qftb	﨧	25700
 qftf	銒	28300
 qfth	针鼻	33200
 qftj	鍺	726000
@@ -82476,7 +82461,6 @@ qftx	铑	610000
 qfty	𨦐	0
 qfuc	镇痛	1750000
 qfud	针头	2330000
-qfuf	﨨	24400
 qfug	多动症	1600000
 qful	𨪲	0
 qfup	鐽	45900
@@ -95616,7 +95600,6 @@ savn	𣐆	0
 savp	相敬如宾	324000
 sawc	檴	27400
 sawc	𣕵	0
-sawf	﨓	26500
 sawf	𣖝	0
 sawg	横倒	42600
 sawi	櫒	496000
@@ -97561,7 +97544,6 @@ sivw	醇酒妇人	848
 siwe	𣖷	0
 siwf	桃仁	817000
 siwh	榉	1300000
-siwr	﨔	22700
 siwu	档位	1320000
 siww	检举人	167000
 sixa	桃红	1870000
@@ -107919,7 +107901,6 @@ ttfh	𢔬	0
 ttfh	𥞧	0
 ttfh	𥱰	0
 ttfj	秊	44100
-ttfj	秊	323000
 ttfk	筶	95400
 ttfk	𥞴	0
 ttfm	穳	22800
@@ -115590,7 +115571,6 @@ uyii	𤷦	0
 uyim	门洞	1510000
 uyir	门派	104000000
 uyiy	凉	69200000
-uyiy	凉	1840000
 uyjd	癠	36700
 uyjd	𤶓	0
 uyje	辩明	158000
@@ -131764,7 +131744,6 @@ yjfb	鄽	12300
 yjfc	𣫛	0
 yjfd	㢆	4090
 yjfe	裏	85400000
-yjfe	裏	12000000
 yjff	廛	496000
 yjff	斉	2190000
 yjfg	𧨚	0
@@ -135237,7 +135216,6 @@ yvdw	康泰	3870000
 yvea	𢧳	0
 yveb	郞	964000
 yveb	鄘	66900
-yveb	郎	2370000
 yvec	𧫫	0
 yvee	㣑	3780
 yvee	良朋	458000
@@ -135781,7 +135759,6 @@ ywyb	腐熟	770000
 ywyc	㡵	4040
 ywyc	詅	64400
 ywyc	謢	646000
-ywyc	﨎	31500
 ywyc	𢊄	0
 ywyc	𣃠	0
 ywyd	㢈	4050
