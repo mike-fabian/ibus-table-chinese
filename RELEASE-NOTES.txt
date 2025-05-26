@@ -1,3 +1,8 @@
+Release 1.8.13
+
+- Remove all lines containing CJK COMPATIBILITY IDEOGRAPHs from the wubi-haifeng86 and the wubi-jidian86 tables
+  (Resolves: https://github.com/kaio/ibus-table/issues/76)
+
 Release 1.8.12
 
 - Add appdata.xml files
