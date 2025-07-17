@@ -1,3 +1,9 @@
+Release 1.8.14
+
+- cmake_minimum_required(VERSION 3.0.0) -> cmake_minimum_required(VERSION 3.12...4.0)
+  Resolves: https://bugzilla.redhat.com/show_bug.cgi?id=2380646
+- Fix typo in tables/CMakeLists.txt
+
 Release 1.8.13
 
 - Remove all lines containing CJK COMPATIBILITY IDEOGRAPHs from the wubi-haifeng86 and the wubi-jidian86 tables
