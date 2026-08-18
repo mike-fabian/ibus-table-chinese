@@ -96,7 +96,7 @@ SUGGESTION_MODE = FALSE
 USER_CAN_DEFINE_PHRASE = FALSE
 
 ### Whether the first candidate will be committed when number of combination
-### keys reach the maximum of this input method. Defualt is true.
+### keys reach the maximum of this input method. Default is true.
 AUTO_COMMIT = FALSE
 
 LAYOUT = us
