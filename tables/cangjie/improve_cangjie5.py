@@ -18,16 +18,29 @@
 Improves the cangjie5.txt table to resolve:
 
 https://github.com/mike-fabian/ibus-table/issues/76
+https://github.com/mike-fabian/ibus-table-chinese/issues/11
+
+The weight of each Chinese character is set by how common it is,
+using the Big5 and HKSCS character sets as a frequency tier:
+
+    Big5 level 1 (常用字)            1000
+    Big5 level 2 (次常用字), HKSCS    800
+    other BMP                         600
+    outside the BMP                   500
 
 For all lines starting with x check whether there is another line
 containing the same Chinese character with the same input to type
-without the x. If such a line exists, change the priority from 1000 to
-900.
+without the x. If such a line exists, lower its weight by 100.
+
+Entries which are not CJK ideographs (punctuation etc.) keep their
+weights, these are ordered by hand.
 '''
 
 from typing import Any
 from typing import List
 from typing import Dict
+from typing import Set
+from typing import Tuple
 import re
 import unicodedata
 import urllib.request
@@ -39,6 +52,31 @@ try:
     IMPORT_CHINESE_VARIANTS_SUCCESSFUL = True
 except (ImportError,):
     IMPORT_CHINESE_VARIANTS_SUCCESSFUL = False
+
+TIER_WEIGHTS = {'big5-L1': 1000, 'big5-L2': 800, 'hkscs': 800,
+                'other-bmp': 600, 'non-bmp': 500}
+
+def tier(char: str) -> str:
+    '''Classify a character by the most common character set containing it'''
+    try:
+        encoded = char.encode('big5')
+        if len(encoded) == 2:
+            if 0xA440 <= int.from_bytes(encoded, 'big') <= 0xC67E:
+                return 'big5-L1'
+            return 'big5-L2'
+    except UnicodeEncodeError:
+        pass
+    try:
+        char.encode('big5hkscs')
+        return 'hkscs'
+    except UnicodeEncodeError:
+        pass
+    return 'other-bmp' if ord(char) <= 0xFFFF else 'non-bmp'
+
+def is_cjk_ideograph(char: str) -> bool:
+    '''Whether char is a CJK (unified or compatibility) ideograph'''
+    return unicodedata.name(char, '').startswith(
+        ('CJK UNIFIED IDEOGRAPH', 'CJK COMPATIBILITY IDEOGRAPH'))
 
 def parse_args() -> Any:
     '''Parse the command line arguments'''
@@ -69,7 +107,8 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
     '''
     head: List[str] = []
     tail: List[str] = []
-    table: Dict[Tuple[str, str], int] = {}
+    table: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    lowered: Set[Tuple[str, str]] = set()
     reading_head = True
     reading_table = True
     reading_tail = True
@@ -137,14 +176,20 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
         if input.startswith('x'):
             short_input = input[1:]
             if (short_input, chinese_character) in table:
-                table[(short_input, chinese_character)]['weight'] = 900
+                lowered.add((short_input, chinese_character))
             valid_input_chars = 'abcdefghijklmnopqrstuvwxyz'
             max_key_length = 5
             if len(short_input) < max_key_length:
                 for extra_input in valid_input_chars:
                     if (short_input + extra_input, chinese_character) in table:
-                        table[(short_input + extra_input, chinese_character)][
-                            'weight']= 900
+                        lowered.add((short_input + extra_input,
+                                     chinese_character))
+    for (input, chinese_character), value in table.items():
+        if all(is_cjk_ideograph(char) for char in chinese_character):
+            value['weight'] = min(TIER_WEIGHTS[tier(char)]
+                                  for char in chinese_character)
+            if (input, chinese_character) in lowered:
+                value['weight'] -= 100
     with open(outputfilename, 'w') as outputfile:
         logging.info("output file=%s", outputfile)
         for line in head:
