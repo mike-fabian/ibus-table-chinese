@@ -1,3 +1,16 @@
+Release 1.8.15
+
+- Weight cangjie5 candidates from private use areas lower than all others
+  (See: https://github.com/mike-fabian/ibus-table-chinese/issues/11#issuecomment-7081327645)
+- improve_jyutping.py: Fix some problems in this script
+- jyutping.txt: regenerate for Unicode 18.0.0 with the fixed improve_jyutping.py
+- Weight cangjie5 candidates by Big5 and HKSCS frequency
+  Rare characters shared weight 1000 with common ones, so they ranked
+  beside everyday candidates. Tier CJK ideographs using Big5 and HKSCS,
+  and keep the x-code adjustment as a 100-point reduction.
+  (Resolves: https://github.com/mike-fabian/ibus-table-chinese/issues/11)
+- Fix typo in comment
+
 Release 1.8.14
 
 - cmake_minimum_required(VERSION 3.0.0) -> cmake_minimum_required(VERSION 3.12...4.0)
