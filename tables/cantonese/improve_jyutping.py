@@ -325,8 +325,8 @@ def improve_jyutping(
                 LOGGER.info(
                     'Adding tone %s %s -> %s -> %s',
                     pinyin_toneless, chinese_character, pinyin, pinyin_letters)
-                table[(pinyin_letters, chinese_character)]['weight'] = (
-                    table[(pinyin_toneless, chinese_character)]['weight'])
+                table[(pinyin_letters, chinese_character)] = (
+                    table[(pinyin_toneless, chinese_character)].copy())
                 # Keep entry with the toneless pinyin to make typing
                 # without pinyin still get exact matches, i.e. do not
                 # delete the toneless entry:
