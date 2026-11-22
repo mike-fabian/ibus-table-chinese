@@ -27,6 +27,7 @@ using the Big5 and HKSCS character sets as a frequency tier:
     Big5 level 2 (次常用字), HKSCS    800
     other BMP                         600
     outside the BMP                   500
+    private use area                  300
 
 For all lines starting with x check whether there is another line
 containing the same Chinese character with the same input to type
@@ -54,7 +55,18 @@ except (ImportError,):
     IMPORT_CHINESE_VARIANTS_SUCCESSFUL = False
 
 TIER_WEIGHTS = {'big5-L1': 1000, 'big5-L2': 800, 'hkscs': 800,
-                'other-bmp': 600, 'non-bmp': 500}
+                'other-bmp': 600, 'non-bmp': 500, 'private-use': 300}
+
+def is_cjk_ideograph(char: str) -> bool:
+    '''Whether char is a CJK (unified or compatibility) ideograph'''
+    return unicodedata.name(char, '').startswith(
+        ('CJK UNIFIED IDEOGRAPH', 'CJK COMPATIBILITY IDEOGRAPH'))
+
+def is_private_use(char: str) -> bool:
+    '''Whether char is in any of the private use areas'''
+    return (0xE000 <= ord(char) <= 0xF8FF
+            or 0xF0000 <= ord(char) <= 0xFFFFD
+            or 0x100000 <= ord(char) <= 0x10FFFD)
 
 def tier(char: str) -> str:
     '''Classify a character by the most common character set containing it'''
@@ -71,12 +83,9 @@ def tier(char: str) -> str:
         return 'hkscs'
     except UnicodeEncodeError:
         pass
+    if is_private_use(char):
+        return 'private-use'
     return 'other-bmp' if ord(char) <= 0xFFFF else 'non-bmp'
-
-def is_cjk_ideograph(char: str) -> bool:
-    '''Whether char is a CJK (unified or compatibility) ideograph'''
-    return unicodedata.name(char, '').startswith(
-        ('CJK UNIFIED IDEOGRAPH', 'CJK COMPATIBILITY IDEOGRAPH'))
 
 def parse_args() -> Any:
     '''Parse the command line arguments'''
@@ -185,7 +194,10 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
                         lowered.add((short_input + extra_input,
                                      chinese_character))
     for (input, chinese_character), value in table.items():
-        if all(is_cjk_ideograph(char) for char in chinese_character):
+        if all(is_cjk_ideograph(char) or is_private_use(char)
+               for char in chinese_character):
+            # Include the private use characters here because they
+            # could be CJK ideographs we don't know ...
             value['weight'] = min(TIER_WEIGHTS[tier(char)]
                                   for char in chinese_character)
             if (input, chinese_character) in lowered:
