@@ -24,21 +24,23 @@ containing the same Chinese character with an input not starting
 with x. If such a line exists, change the priority from 1000 to
 900.
 '''
-
-from typing import Any
-from typing import List
-from typing import Dict
-import re
+import logging
+import sys
 import unicodedata
 import urllib.request
-import logging
+from typing import Any
 
 IMPORT_CHINESE_VARIANTS_SUCCESSFUL = False
 try:
-    import chinese_variants
+    # chinese_variants.py is part of ibus-table
+    # copy it from there if you want to use it
+    # (Not needed at the moment).
+    import chinese_variants  # ty: ignore[import-not-found]
     IMPORT_CHINESE_VARIANTS_SUCCESSFUL = True
-except (ImportError,):
+except ImportError:
     IMPORT_CHINESE_VARIANTS_SUCCESSFUL = False
+
+LOGGER = logging.getLogger('improve_quick5')
 
 def parse_args() -> Any:
     '''Parse the command line arguments'''
@@ -80,20 +82,19 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
     '''
     Read the quick5.txt file and write an improved version
     '''
-    head: List[str] = []
-    tail: List[str] = []
-    table: Dict[Tuple[str, str], int] = {}
+    head: list[str] = []
+    tail: list[str] = []
+    table: dict[tuple[str, str], dict[str, Any]] = {}
     reading_head = True
     reading_table = True
-    reading_tail = True
     with open(inputfilename, 'r') as inputfile:
-        logging.info("input file=%s", inputfile)
+        LOGGER.info("input file=%s", inputfile)
         for line in inputfile:
             if reading_head and not line.startswith('BEGIN_TABLE'):
                 head.append(line)
                 continue
             if reading_head:
-                logging.info('Header read.')
+                LOGGER.info('Header read.')
                 head.append('BEGIN_TABLE\n')
                 reading_head = False
                 continue
@@ -107,7 +108,7 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
                  comment) = stripped_line
                 if (input, chinese_character) in table:
                     first_weight = table[(input, chinese_character)]['weight']
-                    logging.warning(
+                    LOGGER.warning(
                         'duplicate %s %s first weight=%s second weight=%s',
                         input, chinese_character,
                         first_weight, weight)
@@ -120,10 +121,10 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
                     }
                 continue
             if reading_table:
-                logging.info('Table read.')
+                LOGGER.info('Table read.')
                 reading_table = False
             tail.append(line)
-    for (input, chinese_character) in table:
+    for (input, chinese_character), value in table.items():
         unicode_name = unicodedata.name(chinese_character, '')
         if unicode_name.startswith('CJK COMPATIBILITY IDEOGRAPH'):
             unicode_decomposition = unicodedata.decomposition(
@@ -132,10 +133,10 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
             if unicode_decomposition:
                 unicode_decomposition_char = chr(
                     int(unicode_decomposition, 16))
-            logging.info('%s\t%s\t%s %s %s %s',
+            LOGGER.info('%s\t%s\t%s %s %s %s',
                          input,
                          chinese_character,
-                         table[(input, chinese_character)]['weight'],
+                         value,
                          unicode_name,
                          unicode_decomposition,
                          unicode_decomposition_char)
@@ -156,7 +157,7 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
                         used_in_taiwan = True
                 if used_in_taiwan:
                     number_of_problems_with_chinese_variants += 1
-                    logging.info(
+                    LOGGER.info(
                         'Classified as simplified only: %s\t%s\tused_in_taiwan=%s',
                         input, chinese_character, repr(used_in_taiwan))
         if input.startswith('x'):
@@ -168,13 +169,13 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
                     if (input1 + input2, chinese_character) in table:
                         table[(input1 + input2, chinese_character)]['weight'] = 900
     if IMPORT_CHINESE_VARIANTS_SUCCESSFUL:
-        logging.info(
+        LOGGER.info(
             'number_of_problems_with_chinese_variants=%s',
             number_of_problems_with_chinese_variants)
     with open(outputfilename, 'w') as outputfile:
-        logging.info("output file=%s", outputfile)
+        LOGGER.info("output file=%s", outputfile)
         for line in head:
-            outputfile.write('%s' % line)
+            outputfile.write(f'{line}')
         for ((input, chinese_character), value) in sorted(table.items(),
                                                    key=lambda x: (
                                                        x[0][0],
@@ -182,14 +183,12 @@ def improve_quick5(inputfilename: str, outputfilename: str) -> None:
                                                        ord(x[0][1]), # Unicode code point
                                                    )):
             if value['comment']:
-                outputfile.write('%s\t%s\t%s\t%s\n'
-                                 % (input, chinese_character, value['weight'],
-                                    value['comment']))
+                outputfile.write(
+                    f'{input}\t{chinese_character}\t{value["weight"]}\t{value["comment"]}\n')
             else:
-                outputfile.write('%s\t%s\t%s\n'
-                                 % (input, chinese_character, value['weight']))
+                outputfile.write(f'{input}\t{chinese_character}\t{value["weight"]}\n')
         for line in tail:
-            outputfile.write('%s' % line)
+            outputfile.write(f'{line}')
 
 def main() -> None:
     '''Main program'''
@@ -197,7 +196,13 @@ def main() -> None:
     log_level = logging.INFO
     if args.debug:
         log_level = logging.DEBUG
-    logging.basicConfig(format="%(levelname)s: %(message)s", level=log_level)
+    log_handler_stream = logging.StreamHandler(stream=sys.stderr)
+    log_formatter = logging.Formatter(
+        'line %(lineno)d %(funcName)s %(levelname)s: %(message)s')
+    log_handler_stream.setFormatter(log_formatter)
+    LOGGER.setLevel(log_level)
+    if not LOGGER.handlers:
+        LOGGER.addHandler(log_handler_stream)
     improve_quick5(args.inputfilename, args.outputfilename)
 
 if __name__ == '__main__':

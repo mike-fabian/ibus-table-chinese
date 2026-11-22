@@ -36,23 +36,23 @@ without the x. If such a line exists, lower its weight by 100.
 Entries which are not CJK ideographs (punctuation etc.) keep their
 weights, these are ordered by hand.
 '''
-
-from typing import Any
-from typing import List
-from typing import Dict
-from typing import Set
-from typing import Tuple
-import re
+import logging
+import sys
 import unicodedata
 import urllib.request
-import logging
+from typing import Any
 
 IMPORT_CHINESE_VARIANTS_SUCCESSFUL = False
 try:
-    import chinese_variants
+    # chinese_variants.py is part of ibus-table
+    # copy it from there if you want to use it
+    # (Not needed at the moment).
+    import chinese_variants  # ty: ignore[import-not-found]
     IMPORT_CHINESE_VARIANTS_SUCCESSFUL = True
-except (ImportError,):
+except ImportError:
     IMPORT_CHINESE_VARIANTS_SUCCESSFUL = False
+
+LOGGER = logging.getLogger('improve_cangjie5')
 
 TIER_WEIGHTS = {'big5-L1': 1000, 'big5-L2': 800, 'hkscs': 800,
                 'other-bmp': 600, 'non-bmp': 500, 'private-use': 300}
@@ -114,21 +114,20 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
     '''
     Read the cangjie5.txt file and write an improved version
     '''
-    head: List[str] = []
-    tail: List[str] = []
-    table: Dict[Tuple[str, str], Dict[str, Any]] = {}
-    lowered: Set[Tuple[str, str]] = set()
+    head: list[str] = []
+    tail: list[str] = []
+    table: dict[tuple[str, str], dict[str, Any]] = {}
+    lowered: set[tuple[str, str]] = set()
     reading_head = True
     reading_table = True
-    reading_tail = True
     with open(inputfilename, 'r') as inputfile:
-        logging.info("input file=%s", inputfile)
+        LOGGER.info("input file=%s", inputfile)
         for line in inputfile:
             if reading_head and not line.startswith('BEGIN_TABLE'):
                 head.append(line)
                 continue
             if reading_head:
-                logging.info('Header read.')
+                LOGGER.info('Header read.')
                 head.append('BEGIN_TABLE\n')
                 reading_head = False
                 continue
@@ -146,22 +145,22 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
                     }
                 continue
             if reading_table:
-                logging.info('Table read.')
+                LOGGER.info('Table read.')
                 reading_table = False
             tail.append(line)
-    for (input, chinese_character) in table:
+    for (input, chinese_character), value in table.items():
         unicode_name = unicodedata.name(chinese_character, '')
-        if False and unicode_name.startswith('CJK COMPATIBILITY IDEOGRAPH'):
+        if False:  # unicode_name.startswith('CJK COMPATIBILITY IDEOGRAPH'):
             unicode_decomposition = unicodedata.decomposition(
                 chinese_character)
             unicode_decomposition_char = ''
             if unicode_decomposition:
                 unicode_decomposition_char = chr(
                     int(unicode_decomposition, 16))
-            logging.info('%s\t%s\t%s %s %s %s',
+            LOGGER.info('%s\t%s\t%s %s %s %s',
                          input,
                          chinese_character,
-                         table[(input, chinese_character)],
+                         value,
                          unicode_name,
                          unicode_decomposition,
                          unicode_decomposition_char)
@@ -179,7 +178,7 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
                     page = f.read().decode('utf-8')
                     if page and '查無資料' not in page:
                         used_in_taiwan = True
-                logging.info(
+                LOGGER.info(
                     'Classified as simplified only: %s\t%s\tused_in_taiwan=%s',
                     input, chinese_character, repr(used_in_taiwan))
         if input.startswith('x'):
@@ -203,23 +202,21 @@ def improve_cangjie5(inputfilename: str, outputfilename: str) -> None:
             if (input, chinese_character) in lowered:
                 value['weight'] -= 100
     with open(outputfilename, 'w') as outputfile:
-        logging.info("output file=%s", outputfile)
+        LOGGER.info("output file=%s", outputfile)
         for line in head:
-            outputfile.write('%s' % line)
+            outputfile.write(f'{line}')
         for ((input, chinese_character), value) in sorted(table.items(),
                                                    key=lambda x: (
                                                        x[0][0],
                                                        -x[1]['weight']
                                                    )):
             if value['comment']:
-                outputfile.write('%s\t%s\t%s\t%s\n'
-                                 % (input, chinese_character, value['weight'],
-                                    value['comment']))
+                outputfile.write(
+                    f'{input}\t{chinese_character}\t{value["weight"]}\t{value["comment"]}\n')
             else:
-                outputfile.write('%s\t%s\t%s\n'
-                                 % (input, chinese_character, value['weight']))
+                outputfile.write(f'{input}\t{chinese_character}\t{value["weight"]}\n')
         for line in tail:
-            outputfile.write('%s' % line)
+            outputfile.write(f'{line}')
 
 def main() -> None:
     '''Main program'''
@@ -227,7 +224,13 @@ def main() -> None:
     log_level = logging.INFO
     if args.debug:
         log_level = logging.DEBUG
-    logging.basicConfig(format="%(levelname)s: %(message)s", level=log_level)
+    log_handler_stream = logging.StreamHandler(stream=sys.stderr)
+    log_formatter = logging.Formatter(
+        'line %(lineno)d %(funcName)s %(levelname)s: %(message)s')
+    log_handler_stream.setFormatter(log_formatter)
+    LOGGER.setLevel(log_level)
+    if not LOGGER.handlers:
+        LOGGER.addHandler(log_handler_stream)
     improve_cangjie5(args.inputfilename, args.outputfilename)
 
 if __name__ == '__main__':
