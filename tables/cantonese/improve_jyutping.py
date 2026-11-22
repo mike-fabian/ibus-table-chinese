@@ -21,25 +21,24 @@ https://github.com/mike-fabian/ibus-table-chinese/issues/6
 
 Used “unicode_to_jyutping_table.pl” by
 Anthony Wong <yp@anthonywong.net> as a starting point.
+
+requires Python ≥ 3.10.
 '''
-
-from typing import Any
-from typing import List
-from typing import Dict
-from typing import Tuple
-import re
-import unicodedata
-import urllib.request
 import logging
+import re
+import sys
+from typing import Any
 
-MAPPING_TABLE: Dict[str, str] = {
+LOGGER = logging.getLogger('improve_jyutping')
+
+MAPPING_TABLE: dict[str, str] = {
     # Special cases
     'm': 'm',
     'ng': 'ng',
     'zou': 'jo', # for 做，早
     'la': 'la', # for 喇
 }
-INITIALS: Dict[str, str] = {
+INITIALS: dict[str, str] = {
     # jyutping => cantonese
     'b': 'b',
     'p': 'p',
@@ -62,7 +61,7 @@ INITIALS: Dict[str, str] = {
     'j': 'y',
 }
 
-FINALS: Dict[str, str] = {
+FINALS: dict[str, str] = {
     # jyutping => cantonese
     'aa': 'a',
     'aai': 'aai',
@@ -165,43 +164,42 @@ def convert_jp_to_cantonese(jp: str) -> str:
     if jp in MAPPING_TABLE:
         return MAPPING_TABLE[jp]
     initial = ''
-    for key in INITIALS:
+    for key, value in INITIALS.items():
         if not jp.startswith(key):
             continue
         if len(jp) == len(key):
-            MAPPING_TABLE[jp] = INITIALS[key]
+            MAPPING_TABLE[jp] = value
             return MAPPING_TABLE[jp]
         if len(key) > len(initial):
             initial = key
-    for final in FINALS:
-        if not jp == initial + final:
+    for final, value in FINALS.items():
+        if jp != initial + final:
             continue
         if not initial:
-            MAPPING_TABLE[jp] = FINALS[final]
+            MAPPING_TABLE[jp] = value
         else:
-            MAPPING_TABLE[jp] = INITIALS[initial] + FINALS[final]
+            MAPPING_TABLE[jp] = INITIALS[initial] + value
         return MAPPING_TABLE[jp]
-    logging.error('Impossible!')
-    exit(1)
+    LOGGER.error('Impossible!')
+    sys.exit(1)
 
-def create_freq_table(inputfilename: str) -> Dict[Tuple[str, str], str]:
+def create_freq_table(inputfilename: str) -> dict[tuple[str, str], str]:
     '''
     Read the frequencies from the frequency file (default: cantonese.txt)
     '''
-    head: List[str] = []
-    tail: List[str] = []
-    table: Dict[Tuple[str, str], str] = {}
+    head: list[str] = []
+    tail: list[str] = []
+    table: dict[tuple[str, str], str] = {}
     reading_head = True
     reading_table = True
-    reading_tail = True
     with open(inputfilename, 'r') as inputfile:
-        logging.info("input file=%s", inputfile)
+        LOGGER.info("input file=%s", inputfile)
         for line in inputfile:
             if reading_head and not line.startswith('BEGIN_TABLE'):
                 head.append(line)
                 continue
             if reading_head:
-                logging.info('Header read.')
+                LOGGER.info('Header read.')
                 head.append('BEGIN_TABLE\n')
                 reading_head = False
                 continue
@@ -212,20 +210,20 @@ def create_freq_table(inputfilename: str) -> Dict[Tuple[str, str], str]:
                 table[(input, chinese_character)] = weight
                 continue
             if reading_table:
-                logging.info('Table read.')
+                LOGGER.info('Table read.')
                 reading_table = False
             tail.append(line)
     return table
 
 def create_all_pinyin_table(
         inputfilename: str,
-        freq_table: Dict[Tuple[str, str], str]
-) -> Dict[Tuple[str, str], Dict[str, str]]:
-    table: Dict[Tuple[str, str], Dict[str, str]] = {}
+        freq_table: dict[tuple[str, str], str]
+) -> dict[tuple[str, str], dict[str, str]]:
+    table: dict[tuple[str, str], dict[str, str]] = {}
     pattern = re.compile(
         r'^U\+(?P<codepoint>[0-9A-Z]+)\s+kCantonese\s+(?P<pinyin>[a-zA-Z1-6]+)$')
     with open(inputfilename, 'r') as inputfile:
-        logging.info("input file=%s", inputfile)
+        LOGGER.info("input file=%s", inputfile)
         for line in inputfile:
             match = pattern.match(line)
             if not match:
@@ -266,24 +264,25 @@ def create_all_pinyin_table(
 def improve_jyutping(
         inputfilename: str,
         outputfilename: str,
-        all_pinyin: Dict[Tuple[str, str], Dict[str, str]] = {}) -> None:
+        all_pinyin: dict[tuple[str, str], dict[str, str]] | None = None) -> None:
     '''
     Read the jyutping.txt file and write an improved version
     '''
-    head: List[str] = []
-    tail: List[str] = []
-    table: Dict[Tuple[str, str], str] = {}
+    if all_pinyin is None:
+        all_pinyin = {}
+    head: list[str] = []
+    tail: list[str] = []
+    table: dict[tuple[str, str], dict[str, Any]] = {}
     reading_head = True
     reading_table = True
-    reading_tail = True
     with open(inputfilename, 'r') as inputfile:
-        logging.info("input file=%s", inputfile)
+        LOGGER.info("input file=%s", inputfile)
         for line in inputfile:
             if reading_head and not line.startswith('BEGIN_TABLE'):
                 head.append(line)
                 continue
             if reading_head:
-                logging.info('Header read.')
+                LOGGER.info('Header read.')
                 head.append('BEGIN_TABLE\n')
                 reading_head = False
                 continue
@@ -301,7 +300,7 @@ def improve_jyutping(
                     }
                 continue
             if reading_table:
-                logging.info('Table read.')
+                LOGGER.info('Table read.')
                 reading_table = False
             tail.append(line)
     for (pinyin_toneless, chinese_character) in all_pinyin:
@@ -315,7 +314,7 @@ def improve_jyutping(
             pinyin_letters =  all_pinyin[
                 (pinyin_toneless, chinese_character)]['pinyin_letters']
             if (int(frequency_orig) == 0 and int(frequency) > 0):
-                logging.info(
+                LOGGER.info(
                     'Adding frequency from cantonese.txt %s %s %s -> %s',
                     pinyin_toneless, chinese_character, frequency_orig, frequency)
                 table[(pinyin_toneless, chinese_character)][
@@ -323,7 +322,7 @@ def improve_jyutping(
             if (pinyin_toneless != pinyin_letters
                 and pinyin_letters.startswith(pinyin_toneless)
                 and (pinyin_letters, chinese_character) not in table):
-                logging.info(
+                LOGGER.info(
                     'Adding tone %s %s -> %s -> %s',
                     pinyin_toneless, chinese_character, pinyin, pinyin_letters)
                 table[(pinyin_letters, chinese_character)]['weight'] = (
@@ -333,9 +332,9 @@ def improve_jyutping(
                 # delete the toneless entry:
                 # del table[(pinyin_toneless, chinese_character)]
     with open(outputfilename, 'w') as outputfile:
-        logging.info("output file=%s", outputfile)
+        LOGGER.info("output file=%s", outputfile)
         for line in head:
-            outputfile.write('%s' % line)
+            outputfile.write(f'{line}')
         for ((input, chinese_character), value) in sorted(table.items(),
                                                    key=lambda x: (
                                                        x[0][0],   # input
@@ -350,7 +349,7 @@ def improve_jyutping(
                 outputfile.write(
                     f'{input}\t{chinese_character}\t{value["weight"]}\n')
         for line in tail:
-            outputfile.write('%s' % line)
+            outputfile.write(f'{line}')
 
 def main() -> None:
     '''Main program'''
@@ -358,7 +357,13 @@ def main() -> None:
     log_level = logging.INFO
     if args.debug:
         log_level = logging.DEBUG
-    logging.basicConfig(format="%(levelname)s: %(message)s", level=log_level)
+    log_handler_stream = logging.StreamHandler(stream=sys.stderr)
+    log_formatter = logging.Formatter(
+        'line %(lineno)d %(funcName)s %(levelname)s: %(message)s')
+    log_handler_stream.setFormatter(log_formatter)
+    LOGGER.setLevel(log_level)
+    if not LOGGER.handlers:
+        LOGGER.addHandler(log_handler_stream)
     freq_table = create_freq_table(args.frequencyfilename)
     all_pinyin = create_all_pinyin_table(args.unihanreadingsfilename, freq_table)
     improve_jyutping(args.inputfilename,
