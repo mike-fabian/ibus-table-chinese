@@ -15,7 +15,7 @@ UUID = a82d50ad-7995-4db7-9b34-3e9e4e31e4d7
 ### A unique number indicates the version of this file.
 ### For example the last modified date of this file.
 ### This number must be less than 2^32.
-SERIAL_NUMBER = 20220711
+SERIAL_NUMBER = 20261122
 
 ICON = jyutping.png
 
@@ -253,6 +253,7 @@ aaiq	㞒	0
 aaiq	阨	0
 aaiq	隘	0
 aaiq	餲	0
+aaiq	阸	0
 aaiv	挨	360
 aaiv	唉	315
 aaiv	哎	32
@@ -380,6 +381,7 @@ aatq	揠	0
 aatq	軋	0
 aatq	頞	0
 aatq	齃	0
+aatq	猰	0
 aatv	閼	0
 aau	抓	223
 aau	拗	2
@@ -3308,6 +3310,7 @@ caamv	搀	0
 caamv	摻	0
 caamv	骖	0
 caamv	𠻝	0
+caamv	㕘	0
 caamvv	蠶	244
 caamvv	慚	77
 caamvv	饞	29
@@ -17580,6 +17583,7 @@ haang	阬	0
 haangv	坑	512
 haangv	夯	0
 haangv	妔	0
+haangv	阬	0
 haangvv	桁	0
 haanqq	限	3518
 haanqq	㡾	0
@@ -20203,6 +20207,7 @@ houq	䚽	0
 houq	秏	0
 houqq	號	6047
 houqq	浩	438
+houqq	鎬	45
 houqq	灝	42
 houqq	皓	20
 houqq	昊	14
@@ -20264,6 +20269,7 @@ houvv	𤐶	0
 houvv	𧐢	0
 houvv	𨮙	0
 houvv	𩖸	0
+houvv	蚝	0
 houx	好	22037
 houx	𡥘	0
 houx	𣫮	0
@@ -20904,6 +20910,7 @@ jamvv	滛	0
 jamvv	荶	0
 jamvv	鵀	0
 jamvv	鷣	0
+jamvv	唫	0
 jamx	飲	601
 jamx	坅	0
 jamx	昑	0
@@ -25177,6 +25184,7 @@ jyuvv	𤲞	0
 jyuvv	𦖭	0
 jyuvv	𦽳	0
 jyuvv	𩦢	0
+jyuvv	媮	0
 jyux	噢	130
 jyux	瘀	34
 jyux	傴	5
@@ -26558,6 +26566,7 @@ kiuq	䆻	0
 kiuq	窍	0
 kiuq	竅	0
 kiuq	躈	0
+kiuq	㚁	0
 kiuvv	橋	1431
 kiuvv	僑	616
 kiuvv	喬	421
@@ -26771,6 +26780,7 @@ kokq	𢡱	0
 kokq	𤥢	0
 kokq	搉	0
 kokv	搉	0
+kokv	㩁	0
 kong	抗	3665
 kong	炕	229
 kong	慷	107
@@ -35825,6 +35835,7 @@ ngauv	鈎	0
 ngauv	钩	0
 ngauvv	牛	2111
 ngauvv	吽	0
+ngauvv	牜	0
 ngauxx	偶	779
 ngauxx	耦	149
 ngauxx	藕	36
@@ -37052,6 +37063,8 @@ oiv	埃	975
 oiv	哀	382
 oiv	欸	1
 oiv	鎄	0
+oiv	誒	0
+oiv	诶	0
 oix	噯	112
 oix	藹	54
 oix	靄	17
@@ -45855,6 +45868,7 @@ tungvv	𥖹	0
 tungvv	𦒍	0
 tungvv	𦨴	0
 tungvv	衕	0
+tungvv	鲖	0
 tungx	統	12143
 tungx	捅	442
 tungx	桶	20
@@ -45951,6 +45965,7 @@ tyutq	脫	2560
 tyutq	挩	1
 tyutq	脱	0
 tyutq	莌	0
+tyutq	侻	0
 uk	屋	2050
 uk	䁷	0
 uk	剭	0
@@ -47385,6 +47400,7 @@ we	搲	0
 we	𠱥	0
 we	𠾭	0
 wen	𨋍	0
+wenv	𨋍	0
 wet	𠿭	0
 wetv	𠿭	0
 wexx	𠾭	0
@@ -52352,6 +52368,7 @@ zipq	辄	0
 zipq	霅	0
 zipq	鮿	0
 zipq	𣶏	0
+zipq	耴	0
 zipqq	嗫	0
 zipv	𡀞	0
 ziq	志	9053
@@ -54744,6 +54761,7 @@ zyuv	跦	0
 zyuv	铢	0
 zyuv	鮢	0
 zyuv	鴸	0
+zyuv	姝	0
 zyux	主	38619
 zyux	煮	525
 zyux	麈	26
