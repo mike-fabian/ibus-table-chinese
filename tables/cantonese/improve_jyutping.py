@@ -180,7 +180,7 @@ def convert_jp_to_cantonese(jp: str) -> str:
         else:
             MAPPING_TABLE[jp] = INITIALS[initial] + value
         return MAPPING_TABLE[jp]
-    LOGGER.error('Impossible!')
+    LOGGER.error('Impossible! jp=%r', jp)
     sys.exit(1)
 
 def create_freq_table(inputfilename: str) -> dict[tuple[str, str], str]:
