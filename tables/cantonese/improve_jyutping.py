@@ -318,7 +318,7 @@ def improve_jyutping(
                     'Adding frequency from cantonese.txt %s %s %s -> %s',
                     pinyin_toneless, chinese_character, frequency_orig, frequency)
                 table[(pinyin_toneless, chinese_character)][
-                    'weight'] = frequency
+                    'weight'] = int(frequency)
             if (pinyin_toneless != pinyin_letters
                 and pinyin_letters.startswith(pinyin_toneless)
                 and (pinyin_letters, chinese_character) not in table):
